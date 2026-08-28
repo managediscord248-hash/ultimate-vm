@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AZMAL VPS</title>
+<style>
+:root{--bg:#05070c;--panel:#0b1019;--panel2:#0e1520;--border:#1c2a40;--blue:#4d7cff;--blue2:#315eea;--green:#00e889;--text:#edf3ff;--muted:#8b97aa}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 50% -10%,#101a31 0,#05070c 42%);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{overflow-x:hidden}.top{height:78px;border-bottom:1px solid #152238;background:rgba(5,8,14,.92);display:flex;align-items:center;padding:0 24px;gap:28px}.brand{display:flex;align-items:center;gap:12px;min-width:320px}.logo{font-size:38px;font-weight:900;line-height:1;color:#4d72ff}.brand h1{margin:0;font-size:27px;letter-spacing:-.7px}.brand h1 span{color:#4d72ff}.tag{font-size:11px;color:#7f8ba0;margin-top:2px}.nav{display:flex;gap:34px;height:100%;align-items:center;flex:1;justify-content:center}.nav a{height:100%;display:flex;align-items:center;color:#aeb8c8;text-decoration:none;font-size:14px;position:relative}.nav a.active{color:#4e7dff}.nav a.active:after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:#4d73ff;box-shadow:0 0 12px #315eea}.actions{display:flex;align-items:center;gap:12px}.status{padding:11px 18px;border-radius:12px;background:#071c17;border:1px solid #063f31;color:#00e889;font-size:13px;font-weight:700}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#00e889;margin-right:8px;box-shadow:0 0 10px #00e889}.btn{border:1px solid #2b3c59;background:#111a28;color:#eaf1ff;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer}.btn.primary{background:linear-gradient(135deg,#5269ff,#4651ed);border-color:#6375ff;box-shadow:0 5px 18px #273edc55}.btn:hover{filter:brightness(1.12)}
+.wrap{max-width:1420px;margin:auto;padding:24px}.grid{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:24px}.terminal-head{height:52px;display:flex;align-items:center;justify-content:space-between}.tabs{display:flex;align-items:stretch;height:100%;gap:5px}.tab{min-width:205px;border:1px solid var(--border);border-bottom:0;background:#0b111b;border-radius:10px 10px 0 0;padding:0 18px;display:flex;align-items:center;gap:12px;color:#dce5f5;font-size:14px}.tab .x{margin-left:auto;color:#8a96a8;font-size:20px}.plus{width:48px;border:1px solid var(--border);border-bottom:0;border-radius:10px 10px 0 0;background:#0b111b;color:#dce5f5;font-size:23px}.terminal-shell{border:1px solid var(--border);border-radius:0 10px 10px 10px;background:#020407;box-shadow:0 10px 40px #0008;overflow:hidden}.terminal{height:66vh;min-height:480px;padding:18px;overflow:auto;font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.45;white-space:pre-wrap;word-break:break-word;outline:none;scrollbar-color:#263753 #070a10}.terminal .cursor{display:inline-block;width:8px;height:17px;background:#e8efff;vertical-align:-3px;animation:blink 1s steps(2,start) infinite}@keyframes blink{50%{opacity:0}}
+.command{display:flex;margin-top:12px;border:1px solid var(--border);background:#0c1420;border-radius:10px;overflow:hidden}.command input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:#fff;padding:15px 18px;font:14px ui-monospace,monospace}.send{border:0;border-left:1px solid #263653;background:linear-gradient(135deg,#4e63ff,#4652ed);color:white;padding:0 25px;font-weight:800;cursor:pointer}.clearbar{display:flex;justify-content:flex-end;margin-bottom:8px}.clearbar .btn{padding:9px 17px}
+.side{display:flex;flex-direction:column;gap:18px}.card{background:linear-gradient(145deg,#0c121c,#090e16);border:1px solid var(--border);border-radius:12px;padding:20px;box-shadow:0 10px 35px #0004}.card h2{margin:0 0 18px;font-size:17px;color:#5480ff}.info{display:grid;grid-template-columns:1fr auto;gap:14px 8px;font-size:14px}.info .label{color:#c5cfdd}.value{color:#00e889}.metric{margin-top:16px}.metric:first-of-type{margin-top:0}.metric-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px}.meter{height:8px;background:#172234;border-radius:20px;overflow:hidden}.meter i{display:block;height:100%;width:12%;background:#00e889;border-radius:20px;box-shadow:0 0 8px #00e88966}.keys{display:grid;grid-template-columns:90px 1fr;gap:14px 10px;font-size:14px}.key{color:#eaf1ff;background:#101a2a;border:1px solid #243551;border-radius:6px;padding:4px 7px;text-align:center}.help{color:#c2cbd9}.footer{text-align:center;color:#788498;font-size:12px;padding:24px}.footer b{color:#4d75ff}.hidden{display:none}.login{max-width:430px;margin:12vh auto}.login .card{padding:24px}.login input{width:100%;padding:12px;border-radius:8px;border:1px solid #293851;background:#070c14;color:#fff;margin:10px 0 14px}.bad{color:#ff6b7d;font-size:13px}
+.ansi-black{color:#111}.ansi-red{color:#ff4d5e}.ansi-green{color:#20e27c}.ansi-yellow{color:#ffe45e}.ansi-blue{color:#5d82ff}.ansi-magenta{color:#ff5ce5}.ansi-cyan{color:#39e9ff}.ansi-white{color:#f4f7ff}.ansi-bright-black{color:#6f7a8c}.ansi-bright-red{color:#ff7885}.ansi-bright-green{color:#54f39b}.ansi-bright-yellow{color:#fff58c}.ansi-bright-blue{color:#8aa5ff}.ansi-bright-magenta{color:#ff8df0}.ansi-bright-cyan{color:#83f2ff}.ansi-bright-white{color:#fff}.bold{font-weight:800}
+@media(max-width:950px){.top{height:auto;min-height:70px;padding:12px 14px;flex-wrap:wrap;gap:12px}.brand{min-width:0;flex:1}.brand h1{font-size:21px}.logo{font-size:30px}.nav{order:3;width:100%;height:42px;flex:none;gap:24px;overflow:auto;justify-content:flex-start}.actions{margin-left:auto}.status{display:none}.wrap{padding:12px}.grid{grid-template-columns:1fr}.side{display:none}.terminal{height:62vh;min-height:420px;font-size:12px;padding:13px}.tab{min-width:145px}.command input{padding:13px}.send{padding:0 18px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="logo">›_</div><div><h1>AZMAL <span>VPS</span></h1><div class="tag">Powerful. Private. Persistent.</div></div></div>
+  <nav class="nav"><a class="active">TERMINAL</a><a>FILE MANAGER</a><a>SYSTEM INFO</a><a>CONFIG</a></nav>
+  <div class="actions"><div class="status"><span class="dot"></span>CONNECTED</div><button class="btn primary" onclick="connect()">↻&nbsp; Reconnect</button></div>
+</header>
+
+<div id="login" class="wrap login">
+  <div class="card"><h2>AZMAL VPS Console</h2><div class="help">Enter your console token to connect to the persistent terminal.</div><input id="token" type="password" placeholder="CONSOLE_TOKEN"><button class="btn primary" onclick="connect()">Connect</button><p id="loginMsg" class="bad"></p></div>
+</div>
+
+<main id="main" class="wrap hidden">
+  <div class="grid">
+    <section>
+      <div class="terminal-head"><div class="tabs"><div class="tab">›_&nbsp; Terminal 1 <span class="x">×</span></div><button class="plus">+</button></div><div class="clearbar"><button class="btn" onclick="clearTerminal()">▱&nbsp; Clear</button></div></div>
+      <div class="terminal-shell"><div id="terminal" class="terminal" tabindex="0"></div></div>
+      <div class="command"><input id="input" autocomplete="off" spellcheck="false" placeholder="Type a command..." onkeydown="key(event)"><button class="send" onclick="sendCommand()">➤&nbsp; Send</button></div>
+    </section>
+    <aside class="side">
+      <div class="card"><h2>●&nbsp; SESSION INFO</h2><div class="info"><span class="label">Session:</span><span class="value" id="session">azmal</span><span class="label">Status:</span><span class="value" id="sideStatus">Active</span><span class="label">Created:</span><span>—</span><span class="label">Uptime:</span><span>—</span></div></div>
+      <div class="card"><h2>▥&nbsp; USAGE</h2><div class="metric"><div class="metric-row"><span>CPU</span><span id="cpu">—</span></div><div class="meter"><i id="cpuBar"></i></div></div><div class="metric"><div class="metric-row"><span>RAM</span><span id="ram">—</span></div><div class="meter"><i id="ramBar"></i></div></div><div class="metric"><div class="metric-row"><span>Disk</span><span id="disk">—</span></div><div class="meter"><i id="diskBar"></i></div></div></div>
+      <div class="card"><h2>⌨&nbsp; SHORTCUTS</h2><div class="keys"><span class="key">Ctrl + L</span><span class="help">Clear terminal</span><span class="key">Ctrl + C</span><span class="help">Stop command</span><span class="key">Ctrl + D</span><span class="help">Logout</span><span class="key">↑ / ↓</span><span class="help">Command history</span><span class="key">Tab</span><span class="help">Auto-complete</span></div></div>
+    </aside>
+  </div>
+  <div class="footer">© 2026 <b>AZMAL VPS</b>. All rights reserved.</div>
+</main>
+
+<script>
+let ws=null, token=localStorage.getItem('azmal_token')||'', reconnectTimer=null, reconnecting=false;
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const ansiMap={30:'ansi-black',31:'ansi-red',32:'ansi-green',33:'ansi-yellow',34:'ansi-blue',35:'ansi-magenta',36:'ansi-cyan',37:'ansi-white',90:'ansi-bright-black',91:'ansi-bright-red',92:'ansi-bright-green',93:'ansi-bright-yellow',94:'ansi-bright-blue',95:'ansi-bright-magenta',96:'ansi-bright-cyan',97:'ansi-bright-white'};
+let currentClasses=[];
+function ansiHtml(s){
+  s=s.replace(/\x1b\][^\x07]*(?:\x07|\x1b\\)/g,'');
+  let out='', pos=0, re=/\x1b\[([0-9;]*)([A-Za-z])/g, m;
+  while((m=re.exec(s))){ out+=esc(s.slice(pos,m.index)); pos=re.lastIndex;
+    if(m[2]==='m'){
+      const codes=(m[1]?m[1].split(';').map(Number):[0]);
+      for(let i=0;i<codes.length;i++){const c=codes[i]; if(c===0) currentClasses=[]; else if(c===1&&!currentClasses.includes('bold')) currentClasses.push('bold'); else if(ansiMap[c]){currentClasses=currentClasses.filter(x=>!x.startsWith('ansi-')); currentClasses.push(ansiMap[c]);} else if(c===39) currentClasses=currentClasses.filter(x=>!x.startsWith('ansi-'));}
+    }
+    if(m[2]==='K'||m[2]==='H'||m[2]==='J'){} // terminal cursor controls intentionally ignored for display
+  }
+  out+=esc(s.slice(pos));
+  const cls=currentClasses.join(' '); return cls?`<span class="${cls}">${out}</span>`:out;
+}
+function print(s){
+  const t=$('terminal');
+  // Preserve ANSI SGR colours while removing cursor/control sequences.
+  const cleaned=s.replace(/\x1b\[[0-?]*[ -/]*([@-~])/g,(all,cmd)=>cmd==='m'?all:'');
+  t.insertAdjacentHTML('beforeend',ansiHtml(cleaned));
+  t.scrollTop=t.scrollHeight;
+}
+function clearTerminal(){ $('terminal').innerHTML=''; $('input').focus(); }
+function sendCommand(){const v=$('input').value;if(ws&&ws.readyState===1){ws.send(JSON.stringify({type:'input',data:v+'\n'}));$('input').value='';}}
+function connect(){
+  const v=$('token').value.trim()||token;
+  if(!v){$('loginMsg').textContent='Enter CONSOLE_TOKEN';return;}
+  token=v;localStorage.setItem('azmal_token',token);if(ws)try{ws.close()}catch(e){}
+  const proto=location.protocol==='https:'?'wss':'ws'; ws=new WebSocket(`${proto}://${location.host}/ws/terminal`);
+  ws.onopen=()=>{reconnecting=false;$('login').classList.add('hidden');$('main').classList.remove('hidden');$('sideStatus').textContent='Connecting';ws.send(JSON.stringify({token,rows:32,cols:120}));};
+  ws.onmessage=e=>{let m;try{m=JSON.parse(e.data)}catch{return}if(m.type==='output')print(m.data||'');if(m.type==='ready'){$('sideStatus').textContent='Active';}};
+  ws.onclose=()=>{reconnecting=true;$('sideStatus').textContent='Reconnecting';clearTimeout(reconnectTimer);reconnectTimer=setTimeout(connect,2500)};
+  ws.onerror=()=>{};
+}
+function key(e){if(e.ctrlKey&&e.key.toLowerCase()==='l'){e.preventDefault();clearTerminal();return}if(e.key==='Enter'){e.preventDefault();sendCommand();}}
+$('terminal').addEventListener('click',()=> $('input').focus());
+async function loadStatus(){try{const r=await fetch('/api/status');const x=await r.json();$('session').textContent=x.persistent_session||'azmal'}catch{}}
+loadStatus();if(token)connect();
+</script>
+</body>
+</html>
